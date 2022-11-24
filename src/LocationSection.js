@@ -7,7 +7,7 @@ function LocationSection(){
     let [locations, setLocations] = useState([]);
     useEffect(() => {
         try{
-            setLocations(JSON.parse(JSON.stringify(Data)))
+            setLocations(Data)
         }catch(e){
             console.log(e)
         }

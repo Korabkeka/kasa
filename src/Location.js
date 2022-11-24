@@ -1,29 +1,30 @@
-import { useState, useEffect, Component } from "react"
-import { useSearchParams } from "react-router-dom";
+import { useState, useEffect } from "react"
 import Data from "./logements.json"
-import { redirect } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import NotFound from "./NotFound";
 
 
 function Location(){
     let [location, setLocation] = useState({});
-    let [searchParam, setSearchParams] = useSearchParams();
-    console.log(searchParam.get('id'))
+    let locationId = useParams();
+    let navigate = useNavigate();
     useEffect(()=>{
-        try {
-            setLocation(JSON.parse(JSON.stringify(Data)).find(el=> {
-                console.log(el.id)
-                if(el.id === searchParam.id)return 1
-                else return 0
-            }));
-        } catch (error) {
-            console.log(error, searchParam.id)
-            redirect(<NotFound/>)
-        }
-    }, [])
+        
+            console.log(locationId)
+            let data = Data.find(el => el.id === locationId.id)
+            if(data !== undefined){
+                setLocation(data)
+            }else{
+                console.log('null')
+                navigate(<NotFound/>)
+            }
+            
+        
+        console.log(location)
+    }, []);
     return (
         <div>
-            Hello here is location page
+            <div>{location.id}</div>
         </div>
     )
 }
