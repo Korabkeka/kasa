@@ -1,30 +1,27 @@
 import { useState, useEffect } from "react"
 import Data from "./logements.json"
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import NotFound from "./NotFound";
 
 
 function Location(){
     let [location, setLocation] = useState({});
-    let locationId = useParams();
-    let navigate = useNavigate();
+    let {id} = useParams();
     useEffect(()=>{
-        
-            console.log(locationId)
-            let data = Data.find(el => el.id === locationId.id)
+            let data = Data.find(el => el.id === id)
             if(data !== undefined){
-                setLocation(data)
-            }else{
-                console.log('null')
-                navigate(<NotFound/>)
+                setLocation(data);
             }
-            
-        
-        console.log(location)
     }, []);
     return (
         <div>
-            <div>{location.id}</div>
+            {
+                location.id ? (
+                    <>
+                        {location.id}
+                    </>
+                ) : (<NotFound/>)
+            }
         </div>
     )
 }
