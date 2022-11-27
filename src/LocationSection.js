@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 import Data from './logements.json'
+import './LocationSection.css'
 
 
 function LocationSection(){
@@ -15,14 +16,14 @@ function LocationSection(){
     }, [])
     
     return (
-        <div>{
+        <section className="appartment__section">{
             locations.map((location)=>{
-               return (<Link key={location.id} to={location.id}>
+               return (<article key={location.id} className="article__link"><Link  to={location.id} >
                 <img src={location.cover} alt={`location: ${location.id}`}/>
                 <p>{location.title}</p>
-               </Link>)
+               </Link></article>)
             })
-        }</div>
+        }</section>
     )
 }
 

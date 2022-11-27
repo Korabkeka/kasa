@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import About from './About';
 import NotFound from './NotFound';
 import Location from './Location';
+import Footer from "./Footer";
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
           <Route path='/:id' element={<Location/>}/>
         </Routes>  
       </Router>
-
+      <Footer/>
     </div>
   );
 }

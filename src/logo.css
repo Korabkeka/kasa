@@ -1,0 +1,19 @@
+.logo{
+    width: 120px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin: 20px;
+}
+.logo span{
+    display: flex;
+    width: 31%;
+}
+.logo span:nth-of-type(n+2){
+    display: flex;
+    height: 70%;
+    width: 23%;
+}
+.logo svg{
+    height: 100%;
+}

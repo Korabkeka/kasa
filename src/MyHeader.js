@@ -1,12 +1,13 @@
 import Logo from "./Logo";
 import NavigationComp from "./NavigationComp"
+import "./MyHeader.css";
 
 function MyHeader(){
     return (
-        <div>
-            <Logo/>
+        <header>
+            <Logo color="#FF6060"/>
             <NavigationComp/>
-        </div>
+        </header>
     )
 }
 export default MyHeader;
